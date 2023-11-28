@@ -5,44 +5,21 @@ import (
 	"os"
 	"stgathering/pkgs/st_mod"
 	"stgathering/pkgs/stats"
+	"strconv"
 	"time"
 )
 
 func main() {
-	// Get number of nodes from command line arguments
-	if len(os.Args) != 2 {
-		fmt.Println("Usage: go run main.go <numNodes>")
-		os.Exit(1)
-	}
-
-	numNodes := 0
-	_, err := fmt.Sscanf(os.Args[1], "%d", &numNodes)
-	if err != nil {
-		fmt.Println("Usage: go run main.go <numNodes>")
-		os.Exit(1)
-	}
+	numNodes := getNumNodesFromArgs()
 
 	nodes := make([]*st_mod.Node, numNodes)
 	for i := 0; i < numNodes; i++ {
 		nodes[i] = st_mod.NewNode(i)
 	}
 
-	// Create tree
+	assignChildren(nodes, numNodes)
 
-	// Assign children to nodes
-	for i := 0; i < numNodes; i++ {
-		leftChildIndex := 2*i + 1
-		rightChildIndex := 2*i + 2
-
-		if leftChildIndex < numNodes {
-			nodes[i].AddChild(nodes[leftChildIndex])
-		}
-		if rightChildIndex < numNodes {
-			nodes[i].AddChild(nodes[rightChildIndex])
-		}
-	}
-
-	fmt.Println(updateTotalChildren(nodes[0]))
+	updateTotalChildren(nodes[0])
 
 	tree := st_mod.NewTree(nodes, 0)
 
@@ -70,4 +47,33 @@ func updateTotalChildren(node *st_mod.Node) int {
 	node.TotalChildren = totalChildren
 
 	return totalChildren
+}
+
+func assignChildren(nodes []*st_mod.Node, numNodes int) {
+	for i := 0; i < numNodes; i++ {
+		leftChildIndex := 2*i + 1
+		rightChildIndex := 2*i + 2
+
+		if leftChildIndex < numNodes {
+			nodes[i].AddChild(nodes[leftChildIndex])
+		}
+		if rightChildIndex < numNodes {
+			nodes[i].AddChild(nodes[rightChildIndex])
+		}
+	}
+}
+
+func getNumNodesFromArgs() int {
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: go run main.go <numNodes>")
+		os.Exit(1)
+	}
+
+	numNodes, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Println("Usage: go run main.go <numNodes>")
+		os.Exit(1)
+	}
+
+	return numNodes
 }
