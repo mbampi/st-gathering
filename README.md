@@ -76,21 +76,24 @@ Total time: 405.166µs
 ### Trees used
 
 #### 3 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     └── Node ID: 2
+```
 
 #### 5 nodes
 
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   └── Node ID: 3
     └── Node ID: 2
         └── Node ID: 4
+```
 
 #### 10 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -101,9 +104,10 @@ Total time: 405.166µs
     └── Node ID: 2
         ├── Node ID: 7
         └── Node ID: 4
+```
 
 #### 20 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -124,9 +128,10 @@ Total time: 405.166µs
         └── Node ID: 4
             ├── Node ID: 18
             └── Node ID: 19
+```
 
 #### 40 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -167,9 +172,10 @@ Total time: 405.166µs
             └── Node ID: 19
                 ├── Node ID: 38
                 └── Node ID: 39
+```
 
 #### 80 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -250,9 +256,10 @@ Total time: 405.166µs
                 └── Node ID: 39
                     ├── Node ID: 78
                     └── Node ID: 79
+```
 
 #### 160 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -413,9 +420,10 @@ Total time: 405.166µs
                     └── Node ID: 79
                         ├── Node ID: 158
                         └── Node ID: 159
+```
 
 #### 256 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -672,9 +680,10 @@ Total time: 405.166µs
                     └── Node ID: 79
                         ├── Node ID: 158
                         └── Node ID: 159
+```
 
 #### 320 nodes
-
+```
 └── Node ID: 0
     ├── Node ID: 1
     │   ├── Node ID: 6
@@ -995,3 +1004,4 @@ Total time: 405.166µs
                         └── Node ID: 159
                             ├── Node ID: 318
                             └── Node ID: 319
+```
