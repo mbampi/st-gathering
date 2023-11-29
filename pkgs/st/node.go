@@ -10,7 +10,7 @@ import (
 type Node struct {
 	ID            int
 	Children      []*Node
-	Parent        chan int
+	Parent        chan<- int
 	Data          int
 	ReceivingChan chan int
 }
