@@ -1,33 +1,18 @@
 # Data Gathering Spanning Tree
 
-Opcao E
-Algoritmo de coleta usando ST com pais e filhos
-- Modificacão: nó não-folha envia ao pai imediatamente cada mensagem recebida
-de um filho
-  - \# de mensagens?
-  - Tempo?
-  - depende do uso?
+## Description
 
+This project implements a data gathering spanning tree algorithm in Go. It also implements a version of the algorithm where the nodes immediately forward the data to their parent, when receiving it from their children.
 
-└── Node ID: 0
-    ├── Node ID: 1
-    │   ├── Node ID: 3
-    │   └── Node ID: 4
-    └── Node ID: 2
-        ├── Node ID: 5
-        ├── Node ID: 6
-        └── Node ID: 7
+The trees used in the tests are generated as balanced binary trees. The root node is always node 0. 
 
-### Data Gathering Spanning Tree
-Total data gathered by the root (Node 0): 8
-Total messages sent: 7
-Total time: 145.166µs
+## How to run
 
-### Data Gathering Spanning Tree forwarding data straight to the parent
-Total data gathered by the root (Node 0): 8
-Total messages sent: 12
-Total time: 405.166µs
+```bash
+go run main.go <num_nodes>
+```
 
+## Results
 
 ### Number of Messages
 | # Nodes   | Data Gathering ST | Data Gathering ST forwarding data to parent |
@@ -47,7 +32,7 @@ Total time: 405.166µs
 | 10,000    | 9,999             | 113,631                                     |
 | 50,000    | 49,999            | 684,481                                     |
 | 500,000   | 499,999           | 8,475,732                                   |
-| 1,000,000 | 999,999           | 17,951,445                                  | x17.95 |
+| 1,000,000 | 999,999           | 17,951,445                                  |
 
 
 
@@ -69,7 +54,7 @@ Total time: 405.166µs
 | 10,000    | 168.962625ms      | 1.0585515s                                  |
 | 50,000    | 808.111917ms      | 6.115064542s                                |
 | 500,000   | 8.105962584s      | 1m13.704364917s                             |
-| 1,000,000 | 21.150660042s     | 2m47.6733755s                               | x7.9 |
+| 1,000,000 | 21.150660042s     | 2m47.6733755s                               |
 
 
 
@@ -1005,3 +990,5 @@ Total time: 405.166µs
                             ├── Node ID: 318
                             └── Node ID: 319
 ```
+
+... and so on. Balanced trees.
